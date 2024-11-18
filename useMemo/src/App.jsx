@@ -5,9 +5,9 @@ import WithoutMemo from "./components/WithoutMemo"
 function App() {
   return (
     <>
-      {/* <Example1 /> */}
+      <Example1 />
       {/* <WithoutMemo /> */}
-      <WithMemo />
+      {/* <WithMemo /> */}
     </>
   )
 }
