@@ -1,16 +1,16 @@
 import { useMemo, useState } from "react";
 
 export default function WithMemo() {
-    function expensiveCalculation(num) {
+    function expensiveCalculation (num){
         console.log('Calculation...');
-        for (let i = 0; i < 100000000; i++) {
-            num += 1
+        for (let i = 0; i < 1000000000; i++) {
+            num += 1;
         }
         return num;
     }
     const [count, setCount] = useState(0);
     const [todos, setTodos] = useState([]);
-    const calculation =  useMemo(() => (expensiveCalculation(count), [count]))
+    const calculation =  useMemo(() => expensiveCalculation(count), [count])
     
     function increment() {
         setCount((c)=>(c+1));
@@ -26,11 +26,10 @@ export default function WithMemo() {
             {todos.map((todo, index)=>(
                 <p key={index} >{todo}</p>
             ))}
-            <button onClick={addTodo} >Add Todo</button>
+            <button onClick={addTodo}>Add Todo</button>
 
             <p>Expensive Calculation</p>
-            {calculation}
-            
+            {calculation}   
         </div>
     )
     
